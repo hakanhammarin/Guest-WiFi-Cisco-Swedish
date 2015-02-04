@@ -90,6 +90,10 @@ function loadAction(){
      }
 }
 
+function selfservice(){
+    window.open("https://login.guest.hoglandet.se:8003/guestportal/SelfService.action");
+
+}
 </script>
 
 </head>
@@ -108,7 +112,7 @@ Användaravtal:<br>
  - Upprätthålla sekretessen för lösenordet och<br>
  - Alla aktiviteter som sker under ditt användarnamn och lösenord.<br>
 <br>
-2. Höglandskommunerna erbjuder tjänsten för aktiviteter som aktiv användning av e-post, snabbmeddelanden, surfa på webben och få tillgång företags intranät . Hög volym dataöverföringar , särskilt ihållande hög volym dataöverföringar , är inte tillåtna . Värd en webbserver eller någon annan server med hjälp av vår tjänst är förbjudet. Försöker komma åt någon annans konto, skicka oombedda massutskick av e - post, samling av andras personuppgifter utan deras vetskap och interferens med andra nätverksanvändare är alla förbjudna.<br>
+2. Höglandskommunerna erbjuder tjänsten för aktiviteter som aktiv användning av e-post, snabbmeddelanden, surfa på webben och få tillgång företags intranät. Hög volym dataöverföringar , särskilt ihållande hög volym dataöverföringar , är inte tillåtna . Värd en webbserver eller någon annan server med hjälp av vår tjänst är förbjudet. Försöker komma åt någon annans konto, skicka oombedda massutskick av e-post, samling av andras personuppgifter utan deras vetskap och interferens med andra nätverksanvändare är alla förbjudna.<br>
 <br>
 3. Höglandskommunerna förbehåller sig rätten att stänga Tjänsten om<br>
  - Höglandskommunerna rimligen tror att din användning av Tjänsten är orimligt överdrivna eller<br>
@@ -131,7 +135,12 @@ Användaravtal:<br>
             <input type="checkbox" value="remember-me"> Kom ihåg mig
           </label>
         </div>
-<h4><input type="button" name="Submit" value="Jag godkänner avtalet ovan."  class="btn btn-lg btn-primary btn-block" onclick="submitAction();"></h4><p></p>
+<h4><input type="button" name="Submit" value="Jag godkänner avtalet ovan"  class="btn btn-lg btn-primary btn-block" onclick="submitAction();"></h4><p></p>
+
+<div>
+<h4><input type="button" name="Selfservice" value="Jag har inget konto - Självregistrering"  class="btn btn-lg btn-primary btn-block" onclick="selfservice();"></h4><p></p>
+
+</div>
 <IMG SRC="./hit.png" align=bottom>
 </form>
 
