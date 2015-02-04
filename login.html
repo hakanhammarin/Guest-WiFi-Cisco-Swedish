@@ -1,0 +1,141 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Pragma" content="no-cache"> 
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+<title>Välkommen till Höglandskommunernas Gäst WiFi</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="./js/bootstrap.min.js"></script>
+<script>
+function submitAction(){
+      var link = document.location.href;
+      var searchString = "redirect=";
+      var equalIndex = link.indexOf(searchString);
+      var redirectUrl = "";
+
+      if (document.forms[0].action == "") {
+      var url = window.location.href;
+      var args = new Object();
+      var query = location.search.substring(1);
+      var pairs = query.split("&");
+          for(var i=0;i<pairs.length;i++){
+              var pos = pairs[i].indexOf('=');
+              if(pos == -1) continue;
+              var argname = pairs[i].substring(0,pos);
+              var value = pairs[i].substring(pos+1);
+              args[argname] = unescape(value);
+          }
+          document.forms[0].action = args.switch_url;       
+      }       
+      if(equalIndex >= 0) {
+            equalIndex += searchString.length;
+            redirectUrl = "";
+            redirectUrl += link.substring(equalIndex);
+      }
+      if(redirectUrl.length > 255)
+      redirectUrl = redirectUrl.substring(0,255);
+      document.forms[0].redirect_url.value = redirectUrl;
+      document.forms[0].buttonClicked.value = 4;
+      document.forms[0].submit();
+}
+
+function loadAction(){
+     var url = window.location.href;
+     var args = new Object();
+     var query = location.search.substring(1);
+     var pairs = query.split("&");
+     for(var i=0;i<pairs.length;i++){
+          var pos = pairs[i].indexOf('=');
+          if(pos == -1) continue;
+          var argname = pairs[i].substring(0,pos);
+          var value = pairs[i].substring(pos+1);
+          args[argname] = unescape(value);
+     }
+
+
+     document.forms[0].action = args.switch_url;
+
+     // This is the status code returned from webauth login action
+     // Any value of status code from 1 to 5 is error condition and user
+     // should be shown error as below or modify the message as it suits
+     // the customer
+
+     if(args.statusCode == 1){
+        // alert("You are already logged in. No further action is required on your part.");
+        alert("Du är redan inloggad.");
+     }
+     else if(args.statusCode == 2){
+        //alert("You are not configured to authenticate against web portal. No further action is required on your part.");
+        alert("Du har inte möjlighet att logga in på Göst WiFi ");
+     }
+     else if(args.statusCode == 3){
+        //alert("The username specified cannot be used at this time. Perhaps the user is already logged into the system?");
+        alert("Användarnamnet kan inte används just nu. Det kanske redan används någon annan stans?");
+     }
+     else if(args.statusCode == 4){
+        //alert("Wrong username and password. Please try again.");
+        alert("Fel användarnamn eller lösenord. Försök igen.");
+     }
+     else if(args.statusCode == 5){
+        //alert("The User Name and Password combination you have entered is invalid.  Please try again.");
+        alert("Fel användarnamn eller lösenord. Försök igen.");
+     }
+}
+
+</script>
+
+</head>
+
+<body bgcolor=#FFFFFF topmargin="50" marginheight="50" onload="loadAction();"> <form method="post"> <input TYPE="hidden" NAME="buttonClicked" SIZE="16" MAXLENGTH="15" value="0"> <input TYPE="hidden" NAME="redirect_url" SIZE="255" MAXLENGTH="255" VALUE=""> <input TYPE="hidden" NAME="err_flag" SIZE="16" MAXLENGTH="15" value="0">
+<div class="container">
+
+      <form class="form-signin">
+	  
+<h1>Välkommen till Höglandskommunernas Gäst WiFi</h1>
+<!-- <h2 align=center><font color="#336699">Använd befintligt användarnamn och lösenord eller registrera dig via länken nedan:</font></h2> -->
+<div>
+Användaravtal:<br>
+<br>
+1. Du är ansvarig för<br>
+ - Upprätthålla sekretessen för lösenordet och<br>
+ - Alla aktiviteter som sker under ditt användarnamn och lösenord.<br>
+<br>
+2. Höglandskommunerna erbjuder tjänsten för aktiviteter som aktiv användning av e-post, snabbmeddelanden, surfa på webben och få tillgång företags intranät . Hög volym dataöverföringar , särskilt ihållande hög volym dataöverföringar , är inte tillåtna . Värd en webbserver eller någon annan server med hjälp av vår tjänst är förbjudet. Försöker komma åt någon annans konto, skicka oombedda massutskick av e - post, samling av andras personuppgifter utan deras vetskap och interferens med andra nätverksanvändare är alla förbjudna.<br>
+<br>
+3. Höglandskommunerna förbehåller sig rätten att stänga Tjänsten om<br>
+ - Höglandskommunerna rimligen tror att din användning av Tjänsten är orimligt överdrivna eller<br>
+ - Du använder tjänsten för straffrättsliga eller olaglig verksamhet.<br>
+<br>
+4. Du har inte rätt att sälja den här tjänsten till tredje part.<br>
+</div>
+<!-- <iframe src="./aup.html" width="100%" height="300" scrolling="auto"></iframe> -->
+<h3>Ange användarnamn och lösenord</h3>
+<!-- <h5 align=center><font color="#000000">Please enter your username/password</font><h5> -->
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="TEXT"  name="username" id="inputEmail" class="form-control" placeholder="Användarnamn" required autofocus>
+  
+<!--   <h4>Användarnamn:<input type="TEXT" name="username" SIZE="25" MAXLENGTH="63" VALUE=""></h4>
+<h4>Lösenord:<input type="Password" name="password" SIZE="25" MAXLENGTH="63" VALUE=""></h4> -->
+<label for="inputPassword" class="sr-only">Password</label>
+<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Lösenord" required>
+<div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Kom ihåg mig
+          </label>
+        </div>
+<h4><input type="button" name="Submit" value="Jag godkänner avtalet ovan."  class="btn btn-lg btn-primary btn-block" onclick="submitAction();"></h4><p></p>
+<IMG SRC="./hit.png" align=bottom>
+</form>
+
+    </div> <!-- /container -->
+
+</body>
+</html>
